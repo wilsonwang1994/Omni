@@ -1,10 +1,61 @@
-/* img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+.movie-box {
+  height: 260px;
+  width: 120px;
+  margin: 8px;
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  cursor: pointer;
 }
 
-a {
-  overflow: auto
-} */
+.klitem {
+  display: block;
+  height: 256px;
+  width: 120px;
+  float: left;
+  list-style: none;
+  margin-right: 4px;
+  position: relative;
+  border-bottom: 0px solid #4285f4;
+  -webkit-transition: background .15s,border .15s;
+  transition: background .15s,border .15s,padding .15s;
+  padding-bottom: 4px;
+}
+
+.klzc {
+  margin-bottom: 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+.klic {
+  height: 183px;
+  width: 120px;
+  background: #fff;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+img {
+  height: 183px;
+  width: 120px;
+  position: relative;
+  display: block;
+  border: 0;
+}
+
+.kltat {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #222;
+  font-size: 13px;
+  margin-left: 16px;
+  margin-right: 16px;
+  text-shadow: none;
+  padding-top: 0px;
+  line-height: 18px;
+  text-align: left;
+}
