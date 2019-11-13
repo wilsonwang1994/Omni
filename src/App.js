@@ -1,22 +1,42 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBox from './SearchBox';
-import { Data } from './Data';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      input: ''
+      searchfield: '',
+      movies: []
     }
   }
 
+  constructUrl = () => {
+    var url = 'https://itunes.apple.com/search?term=';
+    const wordArray = this.state.searchfield.trim().split(' ');
+    for (var i = 0; i < wordArray.length; i++) {
+      url = url + wordArray[i];
+      if (i < wordArray.length - 1) {
+        url = url + '+';
+      }
+    }
+    url = url + '&entity=movie'
+    return url;
+  }
+
   onInputChange = (event) => {
-    this.setState({input: event.target.value});
+    this.setState({searchfield: event.target.value});
   }
 
   onButtonSubmit = () => {
-    
+    fetch(this.constructUrl())
+      .then(response => response.json())
+      .then((jsonData) => {
+        this.setState({movies: jsonData['results']})
+    })
+    .catch((error) => {
+      console.error(error)
+    })
   }
 
   render() {
@@ -27,7 +47,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onButtonSubmit={this.onButtonSubmit}
         />
-        <MovieList Data={Data} />
+        <MovieList movies={this.state.movies} />
       </div>
     );
   }

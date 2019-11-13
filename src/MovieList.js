@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import Movie from './Movie';
 
-const MovieList = ({ Data }) => {
-  const MovieArray = Data.map((movie, i) => {
+class MovieList extends Component {
+  render() {
+    const { movies } = this.props;
+    const movieArray = movies.map((movie, i) => {
+      return (
+        <Movie
+          key={movies[i].trackId}
+          name={movies[i].trackName}
+          img={movies[i].artworkUrl100}
+          price={movies[i].trackRentalPrice}
+        />
+      )
+    });
+
     return (
-      <Movie
-      id={Data[i].id}
-      name={Data[i].name}
-      img={Data[i].img}
-      price={Data[i].price}/>
-    )
-  });
-  return (
-    <div>
-      {MovieArray}
-    </div>
-  );
+      <div>
+        {movieArray}
+      </div>
+    );
+  }
 }
 
 export default MovieList;

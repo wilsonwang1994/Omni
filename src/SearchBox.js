@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const SearchBox = ({ onInputChange, onButtonSubmit }) => {
@@ -8,7 +8,8 @@ const SearchBox = ({ onInputChange, onButtonSubmit }) => {
         className='pa3 ba b--green bg-lightest-blue'
         type='search'
         placeholder='search movies'
-        onChange={onInputChange}/>
+        onChange={onInputChange}
+      />
       <button
         className='f6 link dim ba bw1 ph3 pv2 mb2 dib dark-gray'
         onClick={onButtonSubmit}>
