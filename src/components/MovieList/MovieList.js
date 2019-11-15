@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Popup from "reactjs-popup";
-import Movie from './Movie';
-import Detail from './Detail';
+import Movie from './Movie/Movie';
+import Detail from './Movie/Detail';
 import './MovieList.css';
 
 class MovieList extends Component {
@@ -27,6 +27,7 @@ class MovieList extends Component {
           <Detail
             name={movies[i].trackName}
             price={movies[i].trackRentalPrice}
+            description={movies[i].shortDescription}
           />
         </Popup>
       )
